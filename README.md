@@ -10,8 +10,7 @@ Tokenized the text by:
     - filtering out all integers and punctuation  
     - putting all characters in lowercase   
     --> returns a list of lists  
-
-    NOTE: decided to take out filtering through NLTK stopwords since exploring the emails, they can be very terse and I felt as if eliminating these words would also eliminate certain features that need to be picked up for identifying the author   
+    NOTE: decided to take out filtering through NLTK stopwords since exploring the emails, they can be very terse and I felt as if eliminating these words would also eliminate certain features that need to be picked up for identifying the author  
 
 Using that list of lists:  
     - create a dictionary for each text file where the key is the word and the number of occurrences of the word within the text is the value  
