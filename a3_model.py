@@ -205,7 +205,7 @@ if __name__ == "__main__":
     parser.add_argument("--batchsize", "-batch", dest="batchsize", type=int, default="20", help="How many samples at a time to pass to model.")
     parser.add_argument("--testsize", "-testsize", dest="testsize", type=int, default="60", help="How many samples for testing model.")
 
-    parser.add_argument("--hiddensize", "-hidden", dest="hiddensize", type=int, default=None, help="Size of hidden layer.")
+    parser.add_argument("--hiddensize", "-hidden", dest="hiddensize", type=int, default=0, help="Size of hidden layer.")
     parser.add_argument("--epochs", "-epochs", dest="epochs", type=int, default=5, help="Number of epochs.")
     parser.add_argument("--nonlinearity", "-nonlinearity", dest="nonlinearity", type=str, default=None, choices=["relu", "tanh"], help="Blank for no non-linearity or choose between ReLU or Tanh.")
     
