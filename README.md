@@ -3,7 +3,7 @@
 Put any documentation here including any answers to the questions in the 
 assignment on Canvas.  
 
-##Part 1 - creating the feature table  
+## Part 1 - creating the feature table  
 The code used for a3_features.py is basically an amalgamation of my code from Assignment 1 and Assignment 2.   
 
 __How To Run:__  
@@ -38,7 +38,7 @@ Turn array into csv file:
     - final_array into pandas dataframe  
     - write csv file using pandas dataframe  
 
-##Part 2 - design and train the basic model    
+## Part 2 - design and train the basic model    
 __How To Run:__  
 ```
 python3 a3_model.py enron_sample datatable.csv --trainsize 140 --batchsize 20 --testsize 60 --epochs 5
@@ -53,13 +53,13 @@ __Arguments (default in parentheses):__
 __Sample Creation__  
 I chose to use the .sample() function in order to randomly pick which documents will be used in training or testing. Through exploring the data in enron_sample, I saw that the number of emails per author ranged from 14 to 1051. Instead of picking through a list of authors each time (giving each author an equal chance of getting chosen), I thought that it would create a better model if there was a higher chance that authors with more emails are chosen. Then there is an equal chance of whether the second document will be from the same author or not. I used the .index method in order to access the features in the dataframe and reset the indices each time I took out an entire row. This prevented the program to try and access indices that were larger than the dataframe's shape (and would return an error even though that index row existed). Both the features and label are turned into tensors and make a tuple together.  
 
-__Optimizer__
+__Optimizer__  
 I chose Adam since it is adaptive compared to SGD where the learning rate has essentially an equivalent type of effect for all weights/parameters of the model.
 
-__Loss Function__ 
+__Loss Function__   
 I chose the Binary Cross Entropy (BCE). Through reading a multitude of articles I learned that BCE is known to be good for classification tasks like the one given in this assignment. It creates a greater penalty when incorrect predictions are predicted with a high confidence. It also penalizes wrong but confident predictions and correct but less confident predictions.  
 
-##Part 3 - augment the model   
+## Part 3 - augment the model   
 __How To Run:__  
 ```
 python3 a3_model.py enron_sample datatable.csv --hiddensize 10 --nonlinearity relu
