@@ -12,25 +12,25 @@ python3 a3_features.py enron_sample datatable 2000
 python3 a3_features.py [DATA DIRECTORY] [NAME OF OUTPUT CSV FILE] [NUMBER OF FEATURES]
 ```  
 
-__**Tokenized the text by:**__    
+_**Tokenized the text by:**_    
     - turning text file into a list of strings (each word is a string)   
     - filtering out all integers and punctuation  
     - putting all characters in lowercase   
     --> returns a list of lists  
     NOTE: decided to take out filtering through NLTK stopwords. While exploring the emails, they can be very terse and I felt as if eliminating these words would also eliminate certain features that need to be picked up for identifying the author.   
 
-__**Using that list of lists:**__   
+_**Using that list of lists:**_   
     - create a dictionary for each text file where the key is the word and the number of occurrences of the word within the text is the value  
     --> returns a list of dictionaries [ {a_word : 3, other_word : 6 }, { a_word : 1, another_word : 4]}  
 
-__**Create numpy array:**__    
+_**Create numpy array:**_    
     - initial array has all zeroes   
     - insert word counts by using index of master_list (list with all of the possible words in the data) and a row index counter (for each document)  
 
-__**Reduce dimensions by using:**__  
+_**Reduce dimensions by using:**_  
     Truncated Singular Value Decomposition (SVD)  
 
-__**Turn array into csv file:**__  
+_**Turn array into csv file:**_  
     - concatenate author labels for each doc  
     - create list that randomly chooses train or test based on weights  
     - concatenate author labels and train/test list  
