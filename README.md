@@ -28,7 +28,7 @@ _**Create numpy array:**_
     - insert word counts by using index of master_list (list with all of the possible words in the data) and a row index counter (for each document)  
 
 _**Reduce dimensions by using:**_  
-    Truncated Singular Value Decomposition (SVD)  
+    - Truncated Singular Value Decomposition (SVD)  
 
 _**Turn array into csv file:**_  
     - concatenate author labels for each doc  
@@ -73,5 +73,20 @@ __Non-linearities:__
 * Tanh (hyperbolic tangent function)  
 
 "Try out a couple of hidden layer sizes with each non-linearity and without any non-linearity and without any non-linearity. Discuss results."
+
+Tests to run  
+- no extra arguments with defaults
+- with hidden size 10
+- with hidden size 20
+- with hidden size 50
+- relu no hidden layer
+- relu 10
+- relu 20
+- relu 50
+- tanh no hidden layer
+- tanh 10
+- tanh 20
+- tanh 50
+
 
 

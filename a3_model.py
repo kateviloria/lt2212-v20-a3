@@ -114,25 +114,28 @@ class BinaryAuthorClassifier(nn.Module):
         else: # no hidden dimensions
             self.linear1 = nn.Linear(input_size, output)
 
-        if nonlinear is not None:
-            if nonlinear == "tanh":
-                nonlinear == nn.Tanh()
+        if self.nonlinear is not None:
+            if self.nonlinear == "tanh":
+                self.nonlinear = nn.Tanh()
             else: # only implemented two choices, would be "relu"
-                nonlinear == nn.ReLU()
+                self.nonlinear = nn.ReLU()
 
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
 
-        x = self.linear1(x)
-
-        if self.nonlinear:
-            y = self.nonlinear(x)
-
-        if self.hidden:
-            y = self.linear2(x)
+        if self.hidden > 0:
+            if self.nonlinear:
+                a = self.linear1(x)
+                y = self.nonlinear(a)
+                z = self.linear2(y)
+            else:
+                y = self.linear1(x)
+                z = self.linear2(y)
+        else:
+            z = self.linear1(x)
         
-        final = self.sigmoid(y)
+        final = self.sigmoid(z)
 
         return final
  
